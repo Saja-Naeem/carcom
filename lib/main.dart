@@ -1,4 +1,5 @@
 import 'package:carcom/Views/splash.dart';
+//import 'package:carcom/Views/view_profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {

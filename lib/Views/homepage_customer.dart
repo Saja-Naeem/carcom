@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class Homepage extends StatefulWidget{
-  const Homepage({super.key});
+class HomepageCustomer extends StatefulWidget{
+  const HomepageCustomer({super.key});
 
  @override
- State<Homepage> createState() => _HomePageState();
+ State<HomepageCustomer> createState() => _HomePageCustomerState();
 
 }
-class _HomePageState extends State<Homepage>{
+class _HomePageCustomerState extends State<HomepageCustomer>{
   
 
    List brands=[
@@ -77,16 +77,16 @@ BottomNavigationBarItem(icon: Icon(Icons.person),label:"*"),
  appBar:AppBar(
   elevation: 0,
   leading:IconButton(icon: const Icon(Icons.notifications),onPressed:(){},),
- backgroundColor: const Color.fromARGB(255, 144, 202, 249),),
+ backgroundColor: Colors.blue.shade900,),
 
 bottomNavigationBar: BottomNavigationBar(
   iconSize: 35,
-  selectedItemColor: Colors.blue,
+  selectedItemColor: Colors.blue.shade900,
   items:[
-BottomNavigationBarItem(icon: const Icon(Icons.home_outlined),backgroundColor: Colors.blue[200],label:"*"),
-BottomNavigationBarItem(icon: const Icon(Icons.explore_outlined),backgroundColor: Colors.blue[200],label:"*"),
-BottomNavigationBarItem(icon: const Icon(Icons.favorite_outlined),backgroundColor: Colors.blue[200],label:"*"),
-BottomNavigationBarItem(icon: const Icon(Icons.person_outlined),backgroundColor: Colors.blue[200],label:"*"),
+BottomNavigationBarItem(icon: const Icon(Icons.home_outlined),backgroundColor: Colors.blue[900],label:"*"),
+BottomNavigationBarItem(icon: const Icon(Icons.explore_outlined),backgroundColor: Colors.blue[900],label:"*"),
+BottomNavigationBarItem(icon: const Icon(Icons.favorite_outlined),backgroundColor: Colors.blue[900],label:"*"),
+BottomNavigationBarItem(icon: const Icon(Icons.person_outlined),backgroundColor: Colors.blue[900],label:"*"),
 ]
 ),
 
@@ -104,7 +104,7 @@ body: ListView
         bottom: 36+ 20.4,
       ),
       height:(MediaQuery.of(context).size).height*0.2-27,
-    decoration: BoxDecoration(color:Colors.blue[200],
+    decoration: BoxDecoration(color:Colors.blue[900],
     borderRadius: const BorderRadius.only(
       bottomLeft: Radius.circular(34),
       bottomRight: Radius.circular(36),
@@ -225,9 +225,9 @@ return Card(
       )
       ,Text(popularCar[i]["title"],style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
       Container(height: 2,),
-      Text(popularCar[i]["subtitle"],style: TextStyle(fontSize: 14,color: Colors.blue[200]),),
+      Text(popularCar[i]["subtitle"],style: TextStyle(fontSize: 14,color: Colors.blue[900]),),
     Container(height: 6,),
-    Text(popularCar[i]["price"],style: TextStyle(fontSize: 14,color: Colors.blue[200],fontWeight: FontWeight.bold),)
+    Text(popularCar[i]["price"],style: TextStyle(fontSize: 14,color: Colors.blue[900],fontWeight: FontWeight.bold),)
      ],)
     );
   }

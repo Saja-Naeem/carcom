@@ -17,6 +17,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+<<<<<<< HEAD
   auto_animated:
     dependency: "direct main"
     description:
@@ -33,6 +34,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+=======
+  avatar_glow:
+    dependency: transitive
+    description:
+      name: avatar_glow
+      sha256: "3627f6f97d1f10d3c1996ae108d3488eabaf68c0cf0c3eac7e7c746a3812881d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
   boolean_selector:
     dependency: transitive
     description:
@@ -120,6 +131,7 @@ packages:
       sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "1.0.8"
   dartz:
     dependency: "direct main"
@@ -153,6 +165,17 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.6"
+=======
+    version: "1.0.6"
+  dotted_border:
+    dependency: transitive
+    description:
+      name: dotted_border
+      sha256: "108837e11848ca776c53b30bc870086f84b62ed6e01c503ed976e8f8c7df9c04"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
   fake_async:
     dependency: transitive
     description:
@@ -277,7 +300,11 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   fluttericon:
+=======
+  google_fonts:
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
     dependency: "direct main"
     description:
       name: fluttericon
@@ -717,6 +744,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      sha256: bbb1934c0cbb03091af082a6389ca2080345291ef07a5fa6d6e078ba8682f977
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   path_parsing:
     dependency: transitive
     description:
@@ -797,6 +832,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+<<<<<<< HEAD
   provider:
     dependency: transitive
     description:
@@ -917,6 +953,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+=======
+  profile:
+    dependency: "direct main"
+    description:
+      name: profile
+      sha256: "124fbbcced24affca3c5f30502893cae920f7b3d10f8ba615ea094a50819a7ef"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1019,7 +1065,11 @@ packages:
     source: hosted
     version: "1.3.2"
   url_launcher:
+<<<<<<< HEAD
     dependency: "direct main"
+=======
+    dependency: transitive
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
     description:
       name: url_launcher
       sha256: "6ce1e04375be4eed30548f10a315826fd933c1e493206eab82eed01f438c8d2e"
@@ -1082,6 +1132,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+<<<<<<< HEAD
   uuid:
     dependency: transitive
     description:
@@ -1090,6 +1141,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.4.0"
+=======
+>>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
   vector_graphics:
     dependency: transitive
     description:
