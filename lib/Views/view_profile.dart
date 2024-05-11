@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class ViewProfile extends StatefulWidget {
+  const ViewProfile({Key? key}) : super(key: key);
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ViewProfile> createState() => _ViewProfileState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ViewProfileState extends State<ViewProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +16,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         color: Colors.white,
       ),),
       backgroundColor: Colors.blue.shade900,
-
       ),
         body: SizedBox(
         width: double.infinity,

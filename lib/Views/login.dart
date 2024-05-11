@@ -18,10 +18,9 @@ class _LoginState extends State<Login> {
     final NavigationController controller = NavigationController();
 
     return Scaffold(
-        body: Container(
-      padding: const EdgeInsets.all(20),
-      child: ListView(
-        children: [
+      body:Container(
+        padding: const EdgeInsets.all(20),
+        child: ListView(children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
