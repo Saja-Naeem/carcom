@@ -1,12 +1,5 @@
 import 'dart:async';
-<<<<<<< HEAD
-
 import 'package:carcom/Views/startpage.dart';
-=======
-//import 'package:carcom/Views/startpage.dart';
-import 'package:carcom/Views/homepage_customer.dart';
-//import 'package:carcom/Views/view_profile.dart';
->>>>>>> 949a222 (last modifaication by ahmad, Profile screen added)
 import 'package:flutter/material.dart';
 
 class Splash extends StatelessWidget {
@@ -19,7 +12,7 @@ class Splash extends StatelessWidget {
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomepageCustomer()),
+          MaterialPageRoute(builder: (context) => const Startup()),
         );
       },
     );
