@@ -91,6 +91,26 @@ class _SignupCustomerState extends State<SignupCustomer> {
                     TextField(
                       controller: customer.password,
                       decoration: InputDecoration(
+                        hintText: "Phone Number",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                            borderSide: BorderSide.none),
+                        fillColor: Colors.grey.withOpacity(0.1),
+                        filled: true,
+                        prefixIcon: const Icon(Icons.phone),
+                        suffixIcon: customer.password.text.isEmpty
+                            ? const Text(
+                                '*Required',
+                                style: TextStyle(color: Colors.red),
+                              )
+                            : null,
+                      ),
+                      obscureText: true,
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: customer.password,
+                      decoration: InputDecoration(
                         hintText: "Password",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(18),
