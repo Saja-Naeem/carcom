@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import
 
-import 'package:carcom/Views/constatns_home_page.dart';
+import 'package:carcom/shared/constatns_home_page.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
