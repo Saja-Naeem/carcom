@@ -7,14 +7,15 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePageAdmin extends StatefulWidget {
-  const HomePageAdmin({super.key});
+class HomePageCarDealer extends StatefulWidget {
+  const HomePageCarDealer({super.key});
 
   @override
-  State<HomePageAdmin> createState() => _HomePageAdminState();
+  State<HomePageCarDealer> createState() => _HomePageCarDealerState();
 }
 
-class _HomePageAdminState extends State<HomePageAdmin> {
+class _HomePageCarDealerState extends State<HomePageCarDealer> {
+    // ignore: unused_field
     final NavigationController _navigationController = NavigationController();
 
   @override

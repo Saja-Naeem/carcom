@@ -130,42 +130,15 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                             ConstantsDashboardTile(
                               icon: Icons.calendar_month_rounded,
                               tileName: 'Reservations',
-<<<<<<< HEAD
-                              numberOfItems: 10,//here add number of items from data base
-                            ),
-                            ConstantsDashboardTile(
-                             icon: Icons.people,
-=======
                               numberOfItems:
                                   10, //here add number of items from data base
                             ),
                             ConstantsDashboardTile(
                               icon: Icons.people,
->>>>>>> 72fd89ad85e902256e6c22e44c88e45f93c9ed0c
                               tileName: 'Customers',
                               numberOfItems: 10,
                             ),
                             ConstantsDashboardTile(
-<<<<<<< HEAD
-                             icon: Icons.people_alt_outlined,
-                              tileName: 'Car Dealers',
-                              numberOfItems: 10,
-                            ),
-                       
-                        ],
-                       ),
-                     )
-
-                    
-                  ],
-                ),
-              ),
-            ),
-          ),
-      ],
-      ),
-    ),
-=======
                               icon: Icons.people_alt_outlined,
                               tileName: 'Car Dealers',
                               numberOfItems: 10,
@@ -181,7 +154,6 @@ class _HomePageAdminState extends State<HomePageAdmin> {
           ],
         ),
       ),
->>>>>>> 72fd89ad85e902256e6c22e44c88e45f93c9ed0c
     );
   }
 }
