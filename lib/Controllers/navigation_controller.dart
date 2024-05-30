@@ -1,4 +1,5 @@
 import 'package:carcom/Views/choose_account.dart';
+import 'package:carcom/Views/homepage_admin.dart';
 import 'package:carcom/Views/homepage_customer.dart';
 import 'package:carcom/Views/login.dart';
 import 'package:carcom/Views/signup_car_dealer.dart';
@@ -41,6 +42,13 @@ class NavigationController {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const HomepageCustomer()),
+    );
+  }
+
+  void navigateToHomePageCarDealer(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomePageAdmin()),
     );
   }
 

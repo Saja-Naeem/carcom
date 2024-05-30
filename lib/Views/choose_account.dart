@@ -9,12 +9,10 @@ class ChooseAccount extends StatelessWidget {
     final NavigationController controller = NavigationController();
 
     return Scaffold(
-      
-      body: Center (
-       child:Column(
-       crossAxisAlignment: CrossAxisAlignment.center,
-       mainAxisAlignment: MainAxisAlignment.center,
-
+        body: Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
             'Choose account type',

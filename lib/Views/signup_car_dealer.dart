@@ -30,8 +30,8 @@ class _SignupCardealerState extends State<SignupCardealer> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            height: MediaQuery.of(context).size.height - 50,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            height: MediaQuery.of(context).size.height - 30,
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,7 +39,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    const SizedBox(height: 60.0),
+                    const SizedBox(height: 10.0),
                     const Text(
                       "Sign up",
                       style: TextStyle(
@@ -76,7 +76,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                             : null,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: dealer.email,
                       decoration: InputDecoration(
@@ -95,7 +95,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                             : null,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: dealer.registrationNo,
                       decoration: InputDecoration(
@@ -115,7 +115,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                       ),
                       obscureText: true,
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: dealer.phoneNumber,
                       decoration: InputDecoration(
@@ -155,7 +155,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                       ),
                       obscureText: true,
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 5),
                     TextField(
                       controller: dealer.confirmPassword,
                       decoration: InputDecoration(
@@ -175,7 +175,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                       ),
                       obscureText: true,
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 5),
                   ],
                 ),
                 Container(
@@ -183,6 +183,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                     child: ElevatedButton(
                       onPressed: () {
                         dealer.saveCredentials();
+                        controller.navigateToHomePageCarDealer(context);
                       },
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),
