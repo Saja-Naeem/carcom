@@ -32,7 +32,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            height: MediaQuery.of(context).size.height - 50,
+            height: MediaQuery.of(context).size.height - 30,
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,7 +40,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    const SizedBox(height: 60.0),
+                    const SizedBox(height: 35.0),
                     const Text(
                       "Sign up",
                       style: TextStyle(
@@ -77,7 +77,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
                             : null,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     TextField(
                       controller: customer.email,
                       decoration: InputDecoration(
@@ -96,7 +96,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
                             : null,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     TextField(
                       controller: customer.phoneNumber,
                       decoration: InputDecoration(
@@ -136,7 +136,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
                       ),
                       obscureText: true,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     TextField(
                       controller: customer.confirmPassword,
                       decoration: InputDecoration(
@@ -200,7 +200,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          height: 30.0,
+                          height: 20.0,
                           width: 30.0,
                           decoration: const BoxDecoration(
                             image: DecorationImage(

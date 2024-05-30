@@ -30,10 +30,10 @@ class _ViewProfileState extends State<ViewProfile> {
               child: Column(
                 children: [
                   Container(
-                    height: 100,
+                    height: 80,
                     width: 100,
                     margin: const EdgeInsets.only(
-                      top: 100,
+                      top: 80,
                       bottom: 8,
                     ),
                     decoration: BoxDecoration(
@@ -120,7 +120,7 @@ class _ViewProfileState extends State<ViewProfile> {
   Widget listProfile(IconData icon, String text1, String text2) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

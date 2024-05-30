@@ -4,7 +4,12 @@ class CarDealerReservationList extends StatefulWidget {
   const CarDealerReservationList({super.key});
 
   @override
+<<<<<<< HEAD
   State<CarDealerReservationList> createState() => _CarDealerReservationListState();
+=======
+  State<CarDealerReservationList> createState() =>
+      _CarDealerReservationListState();
+>>>>>>> 72fd89ad85e902256e6c22e44c88e45f93c9ed0c
 }
 
 class _CarDealerReservationListState extends State<CarDealerReservationList> {
@@ -24,6 +29,7 @@ class _CarDealerReservationListState extends State<CarDealerReservationList> {
         // ignore: avoid_unnecessary_containers
         body: Container(
           child: ListView.builder(
+<<<<<<< HEAD
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: 10,//yara, here we gets from data base 
@@ -32,11 +38,24 @@ class _CarDealerReservationListState extends State<CarDealerReservationList> {
                  return Card(
                   elevation: 8.0,
                   margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0,),
+=======
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: 10, //yara, here we gets from data base
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 8.0,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    vertical: 6.0,
+                  ),
+>>>>>>> 72fd89ad85e902256e6c22e44c88e45f93c9ed0c
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.blue[900],
                     ),
                     child: ListTile(
+<<<<<<< HEAD
                       contentPadding:  const EdgeInsets.only(right:12.0),
                       leading: Container(
                         padding: const EdgeInsets.only(right: 12.0),
@@ -78,3 +97,46 @@ class _CarDealerReservationListState extends State<CarDealerReservationList> {
   );
   }
 }
+=======
+                      contentPadding: const EdgeInsets.only(right: 12.0),
+                      leading: Container(
+                        padding: const EdgeInsets.only(right: 12.0),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            right:
+                                BorderSide(width: 1.0, color: Colors.white24),
+                          ),
+                        ),
+                        child: const Icon(Icons
+                            .calendar_month), // here will be the photo of the car dealer instead of icon
+                      ),
+                      title: const Text(
+                        'Customer name', // yara here we add car dealer name from data base
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: const Row(
+                        children: [
+                          Icon(Icons.timer, color: Colors.white),
+                          Text(
+                            'date of the reservation',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      trailing: const Icon(Icons.keyboard_arrow_right,
+                          color: Colors.white),
+                    ),
+                  ),
+                );
+              }),
+        ),
+      ),
+    );
+  }
+}
+>>>>>>> 72fd89ad85e902256e6c22e44c88e45f93c9ed0c

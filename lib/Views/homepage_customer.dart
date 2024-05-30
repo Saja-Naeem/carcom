@@ -97,7 +97,7 @@ BottomNavigationBarItem(icon: Icon(Icons.person),label:"*"),
         ),
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 35,
-          selectedItemColor: Colors.blue.shade900,
+          selectedItemColor: const Color.fromARGB(255, 232, 234, 237),
           items: [
             BottomNavigationBarItem(
                 icon: const Icon(Icons.home_outlined),
