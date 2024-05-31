@@ -7,7 +7,7 @@ class SignUpCustomerController extends GetxController {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
-
+  
   void saveCredentials() {
     String username = this.username.text;
     String email = this.email.text;
