@@ -29,7 +29,7 @@ class LoginController extends GetxController {
       print(user!.fullName);
 
       if (user is Admin) {
-        controller.navigateToAdminHomePage(context);
+     //   controller.navigateToAdminHomePage(context); here is an error yara and you would add this emthod to make it usable
       } else {
         if (user is Customer) {
           controller.navigateToHomePageCustomer(context);
@@ -40,7 +40,7 @@ class LoginController extends GetxController {
     } else {
       print("Wrong Email Or Password!!");
       CherryToast.warning(
-        title: Text("Email Or Password are wrong"),
+        title: const Text("Email Or Password are wrong"),
       ).show(context);
     }
   }

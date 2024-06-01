@@ -38,7 +38,7 @@ class LoginController extends GetxController {
     } else {
       print("Wrong Email Or Password!!");
       CherryToast.warning(
-        title: Text("Email Or Password are wrong"),
+        title: const Text("Email Or Password are wrong"),
       ).show(context);
     }
   }

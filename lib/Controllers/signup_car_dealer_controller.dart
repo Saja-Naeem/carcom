@@ -17,6 +17,7 @@ class SignUpCarDealerController extends GetxController {
   Future<void> saveCredentials(context) async {
     String username = this.username.text;
     String email = this.email.text;
+    // ignore: unused_local_variable
     String registrationNo = this.registrationNo.text;
     String password = this.password.text;
     String confirmPassword = this.confirmPassword.text;

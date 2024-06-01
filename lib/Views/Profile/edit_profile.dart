@@ -197,7 +197,7 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 );
               },
-              icon: Icon(Icons.edit)),
+              icon: const Icon(Icons.edit)),
         ));
   }
 }

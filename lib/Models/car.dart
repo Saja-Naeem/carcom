@@ -1,5 +1,3 @@
-import 'package:carcom/Models/company.dart';
-import 'package:carcom/Models/insurance.dart';
 
 class Car {
   String carId;
