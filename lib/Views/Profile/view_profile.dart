@@ -1,4 +1,8 @@
+import 'package:carcom/Controllers/login_controller.dart';
+import 'package:carcom/Models/user.dart';
+import 'package:carcom/Views/Profile/edit_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ViewProfile extends StatefulWidget {
   const ViewProfile({Key? key}) : super(key: key);
@@ -8,8 +12,10 @@ class ViewProfile extends StatefulWidget {
 }
 
 class _ViewProfileState extends State<ViewProfile> {
+  final LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    User? user = loginController.user;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -19,6 +25,19 @@ class _ViewProfileState extends State<ViewProfile> {
           ),
         ),
         backgroundColor: Colors.blue.shade900,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EditProfile(),
+                  ));
+            },
+            icon: const Icon(Icons.edit),
+            color: Colors.white,
+          ),
+        ],
       ),
       body: SizedBox(
         width: double.infinity,
@@ -53,18 +72,18 @@ class _ViewProfileState extends State<ViewProfile> {
                       ),
                     ),
                   ),
-                  const Text(
-                    "Kyle",
-                    style: TextStyle(
+                  Text(
+                    user != null ? user.fullName : "User",
+                    style: const TextStyle(
                       fontFamily: "Montserrat",
                       color: Colors.black87,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                  const Text(
-                    "Programmer",
-                    style: TextStyle(
+                  Text(
+                    user != null ? user.email : "email",
+                    style: const TextStyle(
                       fontFamily: "Montserrat",
                       color: Colors.black54,
                       fontSize: 16,
@@ -100,13 +119,15 @@ class _ViewProfileState extends State<ViewProfile> {
                         fontSize: 20,
                       ),
                     ),
-                    listProfile(Icons.person, "Full Name", "Kyle Anderson"),
+                    listProfile(Icons.person, "Full Name",
+                        user != null ? user.fullName : "User"),
                     listProfile(
                         Icons.date_range, "Date of Birth", "July 21, 2000"),
                     listProfile(Icons.location_pin, "Location",
                         "California, United States"),
                     listProfile(Icons.male, "Gender", "Male"),
-                    listProfile(Icons.phone, "Phone Number", "15555228"),
+                    listProfile(Icons.phone, "Phone Number",
+                        user != null ? user.mobileNumber : "0770667293"),
                   ],
                 ),
               ),

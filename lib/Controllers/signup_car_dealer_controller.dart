@@ -1,3 +1,7 @@
+import 'package:carcom/Controllers/database.dart';
+import 'package:carcom/Controllers/navigation_controller.dart';
+import 'package:carcom/Models/car_dealer.dart';
+import 'package:cherry_toast/cherry_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -8,8 +12,9 @@ class SignUpCarDealerController extends GetxController {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
+  final NavigationController controller = NavigationController();
 
-  void saveCredentials() {
+  Future<void> saveCredentials(context) async {
     String username = this.username.text;
     String email = this.email.text;
     String registrationNo = this.registrationNo.text;
@@ -17,11 +22,33 @@ class SignUpCarDealerController extends GetxController {
     String confirmPassword = this.confirmPassword.text;
     String phoneNumber = this.phoneNumber.text;
 
-    print('UserName: $username'); //for test code
-    print('Email: $email'); //for test code
-    print('registrationNo: $registrationNo'); //for test code
-    print('Password: $password'); //for test code
-    print('confirmPassword: $confirmPassword'); //for test code
-    print('phoneNumber: $phoneNumber'); //for test code
+    if (confirmPassword == password) {
+      CarDealer c = CarDealer(
+        id: 0,
+        email: email,
+        fullName: username,
+        mobileNumber: phoneNumber,
+        image: "",
+        password: password,
+        age: 18,
+        civilId: "",
+      );
+
+      bool isExist = await DataBase.getInstans().checkIfCustomerExist(c);
+      if (!isExist) {
+        DataBase.getInstans().createNewUser(c);
+        controller.navigateToHomePageCarDealer(context);
+      } else {
+        print("User Alredy Exist!!");
+        CherryToast.warning(
+          title: const Text("User Alredy Exist"),
+          description: const Text("Try to Login"),
+        ).show(context);
+      }
+    } else {
+      CherryToast.warning(
+        title: const Text("Passwords are not the same"),
+      ).show(context);
+    }
   }
 }

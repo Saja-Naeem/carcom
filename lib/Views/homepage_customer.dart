@@ -1,6 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:carcom/Controllers/database.dart';
+import 'package:carcom/Controllers/login_controller.dart';
 import 'package:carcom/Controllers/navigation_controller.dart';
+import 'package:carcom/Models/car.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class HomepageCustomer extends StatefulWidget {
@@ -11,6 +15,7 @@ class HomepageCustomer extends StatefulWidget {
 }
 
 class _HomePageCustomerState extends State<HomepageCustomer> {
+  final LoginController loginController = Get.put(LoginController());
   final NavigationController _navigationController = NavigationController();
   int _selectedIndex = 0;
 
@@ -74,9 +79,63 @@ class _HomePageCustomerState extends State<HomepageCustomer> {
       "price": "350\$ "
     },
   ];
-
+  List<Car> allCars = [];
+  bool firstTime = true;
   @override
   Widget build(BuildContext context) {
+    if (firstTime) {
+      allCars.clear();
+      DataBase.getInstans().getAllCars().then((val) {
+        setState(() {
+          allCars = val;
+        });
+      });
+      firstTime = false;
+    }
+    /*
+    Car c1 = Car(
+      carId: "Car1",
+      manufactureYear: 2020,
+      transmissionType: "IDK",
+      status: "Good",
+      price: 300,
+      fuelType: "Elc.",
+      model: "BMW",
+      type: "Car",
+      colour: "Red",
+      image: "",
+      ownerName: "Hisham",
+    );
+    Car c2 = Car(
+      carId: "Car2",
+      manufactureYear: 2018,
+      transmissionType: "IDK",
+      status: "Bad",
+      price: 700,
+      fuelType: "Gaz",
+      model: "Marcedes",
+      type: "Car",
+      colour: "Blue",
+      image: "",
+      ownerName: "Ahmad",
+    );
+    Car c3 = Car(
+      carId: "Car3",
+      manufactureYear: 1537,
+      transmissionType: "IDK",
+      status: "Good",
+      price: 7924,
+      fuelType: "Coal",
+      model: "Toyota",
+      type: "Car",
+      colour: "Yellow",
+      image: "",
+      ownerName: "Fawzy",
+    );
+    DataBase.getInstans().addNewCar(c1);
+    DataBase.getInstans().addNewCar(c2);
+    DataBase.getInstans().addNewCar(c3);
+*/
     return Scaffold(
         /*
 bottomNavigationBar: BottomNavigationBar(items:[
@@ -141,11 +200,11 @@ BottomNavigationBarItem(icon: Icon(Icons.person),label:"*"),
                               bottomRight: Radius.circular(36),
                             ),
                           ),
-                          child: const Row(
+                          child: Row(
                             children: <Widget>[
                               Text(
-                                'HI !',
-                                style: TextStyle(
+                                'HI ${loginController.user?.fullName}!',
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 30,
                                     color: Colors.white),
@@ -248,43 +307,47 @@ BottomNavigationBarItem(icon: Icon(Icons.person),label:"*"),
                   ),
                 ])),
             GridView.builder(
-                itemCount: popularCar.length,
+                itemCount: allCars.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, mainAxisExtent: 230),
                 itemBuilder: (context, i) {
-                  return Card(
+                  return InkWell(
+                    onTap: () {},
+                    child: Card(
+                        child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(allCars[i].image),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(20),
-                        width: 300,
-                        color: Colors.grey[200],
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(allCars[i].ownerName,
+                              style: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 2),
+                          Text(
+                            allCars.elementAt(i).model,
+                            style: TextStyle(
+                                fontSize: 14, color: Colors.blue[900]),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            allCars[i].price.toString(),
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.blue[900],
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
                       ),
-                      Text(popularCar[i]["title"],
-                          style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold)),
-                      Container(
-                        height: 2,
-                      ),
-                      Text(
-                        popularCar[i]["subtitle"],
-                        style: TextStyle(fontSize: 14, color: Colors.blue[900]),
-                      ),
-                      Container(
-                        height: 6,
-                      ),
-                      Text(
-                        popularCar[i]["price"],
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.blue[900],
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ));
+                    )),
+                  );
                 })
           ],
         ));

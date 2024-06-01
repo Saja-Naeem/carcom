@@ -1,18 +1,45 @@
+import 'package:carcom/Controllers/database.dart';
+import 'package:carcom/Controllers/navigation_controller.dart';
+import 'package:carcom/Models/admin.dart';
+import 'package:carcom/Models/customer.dart';
+import 'package:carcom/Models/user.dart';
+import 'package:cherry_toast/cherry_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final NavigationController controller = NavigationController();
 
-  void saveCredentials() {
+  User? user;
+
+  Future<void> saveCredentials(context) async {
     String email = emailController.text;
     String password = passwordController.text;
 
-
-
-    
-    print('Email: $email'); //for test code work
-    print('Password: $password'); //for test code work
+    bool login =
+        await DataBase.getInstans().userLogin(email: email, pass: password);
+    if (login) {
+      user = (await DataBase.getInstans().getUserData(email));
+      if (user == null) {
+        return;
+      }
+      print(user!.fullName);
+      if (user is Admin) {
+        // controller.Na
+      } else {
+        if (user is Customer) {
+          controller.navigateToHomePageCustomer(context);
+        } else {
+          controller.navigateToHomePageCarDealer(context);
+        }
+      }
+    } else {
+      print("Wrong Email Or Password!!");
+      CherryToast.warning(
+        title: Text("Email Or Password are wrong"),
+      ).show(context);
+    }
   }
 }

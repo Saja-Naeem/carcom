@@ -2,7 +2,7 @@ import 'package:carcom/Models/company.dart';
 import 'package:carcom/Models/insurance.dart';
 
 class Car {
-  int carId;
+  String carId;
   int manufactureYear;
   String transmissionType;
   String status;
@@ -13,8 +13,8 @@ class Car {
   String colour;
   String image;
   String ownerName;
-  Company company;
-  List<Insurance> insurances;
+  // Company company;
+  // List<Insurance> insurances;
 
   Car({
     required this.carId,
@@ -28,7 +28,7 @@ class Car {
     required this.colour,
     required this.image,
     required this.ownerName,
-    required this.company,
-    required this.insurances,
+    // required this.company,
+    // required this.insurances,
   });
 }

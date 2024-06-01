@@ -162,8 +162,7 @@ class _SignupCustomerState extends State<SignupCustomer> {
                     padding: const EdgeInsets.only(top: 3, left: 3),
                     child: ElevatedButton(
                       onPressed: () {
-                        customer.saveCredentials();
-                        controller.navigateToHomePageCustomer(context);
+                        customer.saveCredentials(context);
                       },
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),

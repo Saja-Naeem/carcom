@@ -182,8 +182,7 @@ class _SignupCardealerState extends State<SignupCardealer> {
                     padding: const EdgeInsets.only(top: 3, left: 3),
                     child: ElevatedButton(
                       onPressed: () {
-                        dealer.saveCredentials();
-                        controller.navigateToHomePageCarDealer(context);
+                        dealer.saveCredentials(context);
                       },
                       style: ElevatedButton.styleFrom(
                         shape: const StadiumBorder(),

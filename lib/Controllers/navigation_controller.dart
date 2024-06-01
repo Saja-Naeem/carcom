@@ -1,10 +1,11 @@
 import 'package:carcom/Views/choose_account.dart';
 import 'package:carcom/Views/homepage_admin.dart';
+import 'package:carcom/Views/homepage_cardealer.dart';
 import 'package:carcom/Views/homepage_customer.dart';
 import 'package:carcom/Views/login.dart';
 import 'package:carcom/Views/signup_car_dealer.dart';
 import 'package:carcom/Views/signup_customer.dart';
-import 'package:carcom/Views/view_profile.dart';
+import 'package:carcom/Views/Profile/view_profile.dart';
 import 'package:flutter/material.dart';
 
 class NavigationController {
@@ -48,7 +49,7 @@ class NavigationController {
   void navigateToHomePageCarDealer(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const HomePageAdmin()),
+      MaterialPageRoute(builder: (context) => const HomePageCarDealer()),
     );
   }
 
