@@ -13,26 +13,29 @@ class Startup extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Image(
-            image: AssetImage('assets\\startup.jpg'),
-            alignment: Alignment.center,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
           const Text(
             'Welcome to CarCom Application',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
           ),
+          
           const SizedBox(
             height: 10,
           ),
           const Text(
             'We hope you find a great choice',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          
+          const Image(
+            image: AssetImage('assets\\startup.jpg'),
+            alignment: Alignment.center,
+          ),
+          
           const SizedBox(
             height: 10,
           ),
