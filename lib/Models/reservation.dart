@@ -1,19 +1,22 @@
 import 'package:carcom/Models/car.dart';
+import 'package:carcom/Models/car_dealer.dart';
 import 'package:carcom/Models/customer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Reservation {
-  DateTime pickupDate;
-  DateTime returnDate;
-  String state;
-  String pickupLocation;
-  String returnLocation;
-  int reservationId;
-  DateTime reservationDate;
-  double initialMileage;
-  double finalMileage;
-  String contract;
-  Customer customer;
-  Car car;
+  late DateTime pickupDate;
+  late DateTime returnDate;
+  late String state;
+  late String pickupLocation;
+  late String returnLocation;
+  late int reservationId;
+  late DateTime reservationDate;
+  late double initialMileage;
+  late double finalMileage;
+  late String contract;
+  Customer customer = Customer.def();
+  late CarDealer carDealer = CarDealer.def();
+  late Car car = Car.def();
 
   Reservation({
     required this.pickupDate,
@@ -28,7 +31,39 @@ class Reservation {
     required this.contract,
     required this.customer,
     required this.car,
+    required this.carDealer,
   });
+
+  Reservation.fromJson(Map json) {
+    pickupDate = json['pickupDate'].toDate();
+    returnDate = json['returnDate'].toDate();
+    reservationDate = json['reservationDate'].toDate();
+
+    state = json["state"];
+    pickupLocation = json["pickupLocation"];
+    returnLocation = json["returnLocation"];
+    contract = json["contract"];
+
+    reservationId = json["reservationId"];
+    initialMileage = double.parse(json["initialMileage"].toString());
+    finalMileage = double.parse(json["finalMileage"].toString());
+
+    (json['carDealer'] as DocumentReference).get().then(
+      (value) {
+        carDealer = CarDealer.fromjson(value.data() as Map);
+      },
+    );
+    (json['customer'] as DocumentReference).get().then(
+      (value) {
+        customer = Customer.fromjson(value.data() as Map);
+      },
+    );
+    (json['car'] as DocumentReference).get().then(
+      (value) {
+        car = Car.fromJson(value.data() as Map);
+      },
+    );
+  }
 
   void cancelReservation() {}
   void calculateTotalCost() {}

@@ -1,5 +1,6 @@
 import 'package:carcom/Views/splash.dart';
 import 'package:carcom/firebase_options.dart';
+import 'package:carcom/test_for_firebase.dart';
 import 'package:firebase_core/firebase_core.dart';
 //import 'package:carcom/Views/view_profile.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Splash(),
+      home: const Test(),
     );
   }
 }

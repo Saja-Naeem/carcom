@@ -21,6 +21,8 @@ class Admin extends User {
           civilId: civilId,
         );
 
+  Admin.fromjson(Map json) : super.fronJson(json);
+
   void deleteAccount() {}
   void viewCustomers() {}
   void viewCarDealer() {}

@@ -1,8 +1,8 @@
 import 'package:carcom/Models/user.dart';
 
 class Customer extends User {
-  String driverLicence;
-  int point;
+  String driverLicence = "";
+  int point = 0;
 
   Customer({
     required int id,
@@ -26,6 +26,12 @@ class Customer extends User {
           civilId: civilId,
         );
 
+  Customer.def() : super.def();
+
+  Customer.fromjson(Map json) : super.fronJson(json) {
+    driverLicence = json['driverLicence'];
+    point = json['point'];
+  }
   void rentCar() {}
   void viewHistory() {}
   void cancel() {}

@@ -1,12 +1,12 @@
 class User {
-  int id;
-  String email;
-  String fullName;
-  String mobileNumber;
-  String image;
-  String password;
-  int age;
-  String civilId;
+  int id = 0;
+  String email = "";
+  String fullName = "";
+  String mobileNumber = "";
+  String image = "";
+  String password = "";
+  int age = 0;
+  String civilId = "";
 
   User({
     required this.id,
@@ -18,7 +18,18 @@ class User {
     required this.age,
     required this.civilId,
   });
+  User.fronJson(Map json) {
+    id = json['id'];
+    email = json['email'];
+    fullName = json["fullName"];
+    mobileNumber = json['mobileNumber'];
+    image = json['image'];
+    password = json['password'];
+    age = json['age'];
+    civilId = json['civilId'];
+  }
 
+  User.def();
   void editProfile() {}
   void viewProfile() {}
   void logout() {}

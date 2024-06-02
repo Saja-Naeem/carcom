@@ -1,16 +1,15 @@
-
 class Car {
-  String carId;
-  int manufactureYear;
-  String transmissionType;
-  String status;
-  double price;
-  String fuelType;
-  String model;
-  String type;
-  String colour;
-  String image;
-  String ownerName;
+  String carId = "";
+  int manufactureYear = 0;
+  String transmissionType = "";
+  String status = "";
+  double price = 0;
+  String fuelType = "";
+  String model = "";
+  String type = "";
+  String colour = "";
+  String image = "";
+  String ownerName = "";
   // Company company;
   // List<Insurance> insurances;
 
@@ -29,4 +28,18 @@ class Car {
     // required this.company,
     // required this.insurances,
   });
+  Car.def();
+  Car.fromJson(Map json) {
+    carId = json["carId"] ?? "";
+    manufactureYear = json["manufactureYear"] ?? 0;
+    transmissionType = json["transmissionType"] ?? "";
+    fuelType = json["fuelType"];
+    status = json["status"];
+    price = json["price"];
+    model = json["model"];
+    type = json["type"];
+    colour = json["colour"];
+    image = json["image"];
+    ownerName = json["ownerName"];
+  }
 }

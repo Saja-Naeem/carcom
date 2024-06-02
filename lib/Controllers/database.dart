@@ -4,6 +4,7 @@ import 'package:carcom/Models/admin.dart';
 import 'package:carcom/Models/car.dart';
 import 'package:carcom/Models/car_dealer.dart';
 import 'package:carcom/Models/customer.dart';
+import 'package:carcom/Models/reservation.dart';
 import 'package:carcom/Models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -20,6 +21,8 @@ class DataBase {
       FirebaseFirestore.instance.collection('user');
   final CollectionReference _Cars =
       FirebaseFirestore.instance.collection('cars');
+  final CollectionReference _Reservations =
+      FirebaseFirestore.instance.collection('reservations');
 
   Future<bool> createNewUser(User u) async {
     try {
@@ -201,5 +204,149 @@ class DataBase {
     }
 
     return cars;
+  }
+
+//List<CarDealer> ✔
+//List<Customer> ✔
+//List<reservation> ✔
+//create Reservation ✔
+//List<Car> For the CarDealer ✔
+//List<Reservation> For the CarDealer ✔
+
+  Future<List<CarDealer>> getAllCarDealers() async {
+    List<CarDealer> carDealers = [];
+
+    var q = await _Users.get();
+    var docs = q.docs;
+    var carDs = docs.where(
+      (doc) {
+        return doc.get("role") == "CarDealer";
+      },
+    );
+    for (var e in carDs) {
+      carDealers.add(CarDealer(
+        id: e["id"],
+        email: e["email"],
+        fullName: e["fullName"],
+        mobileNumber: e["mobileNumber"],
+        image: e["image"],
+        password: e["password"],
+        age: e["age"],
+        civilId: e["civilId"],
+      ));
+    }
+    return carDealers;
+  }
+
+  Future<List<Customer>> getAllCustomer() async {
+    List<Customer> customer = [];
+
+    var q = await _Users.get();
+    var docs = q.docs;
+    var carDs = docs.where(
+      (doc) {
+        return doc.get("role") == "Customer";
+      },
+    );
+    for (var e in carDs) {
+      customer.add(Customer(
+        id: e["id"],
+        email: e["email"],
+        fullName: e["fullName"],
+        mobileNumber: e["mobileNumber"],
+        image: e["image"],
+        password: e["password"],
+        age: e["age"],
+        civilId: e["civilId"],
+        driverLicence: e["driverLicence"],
+        point: e["point"],
+      ));
+    }
+    return customer;
+  }
+
+  void newReservation(Reservation reservation) {
+    _Reservations.doc().set(reservationToJson(reservation));
+  }
+
+  Map<String, dynamic> reservationToJson(Reservation r) {
+    String carPath = "cars/${r.car.carId}";
+
+    String custPath = "user/${r.customer.email}";
+    String dealerPath = "user/${r.carDealer.email}";
+
+    return {
+      "pickupDate": r.pickupDate,
+      'returnDate': r.returnDate,
+      'state': r.state,
+      'pickupLocation': r.pickupLocation,
+      'returnLocation': r.returnLocation,
+      'reservationId': r.reservationId,
+      'reservationDate': r.reservationDate,
+      'initialMileage': r.initialMileage,
+      'finalMileage': r.finalMileage,
+      'contract': r.contract,
+      'customer': custPath,
+      'carDealer': dealerPath,
+      'car': carPath,
+    };
+  }
+
+  Future<List<Reservation>> getAllReservations() async {
+    List<Reservation> res = [];
+    var q = await _Reservations.get();
+    var docs = q.docs;
+    for (var doc in docs) {
+      var cust = doc['customer'] as DocumentReference;
+      Customer c = Customer.fromjson((await cust.get()).data() as Map);
+      var carD = doc['ownerName'] as DocumentReference;
+      CarDealer carDealer =
+          CarDealer.fromjson((await carD.get()).data() as Map);
+      var car = doc['car'] as DocumentReference;
+      Car theCar = Car.fromJson((await car.get()).data() as Map);
+
+      res.add(Reservation(
+        pickupDate: doc["pickupDate"].toDate(), //Date
+        returnDate: doc["returnDate"].toDate(), //Date
+        state: doc["state"],
+        pickupLocation: doc["pickupLocation"],
+        returnLocation: doc["returnLocation"],
+        reservationId: doc["reservationId"],
+        reservationDate: doc["reservationDate"].toDate(),
+        initialMileage: double.parse(doc['initialMileage'].toString()),
+        finalMileage: double.parse(doc['finalMileage'].toString()),
+        contract: doc['contract'],
+        customer: c,
+        car: theCar,
+        carDealer: carDealer,
+      ));
+    }
+    return res;
+  }
+
+  Future<List<Car>> getCarsFor(CarDealer carDealer) async {
+    List<Car> cars = [];
+    var q = await _Users.doc(carDealer.email).get();
+
+    for (var car in (q.data() as Map)["cars"]) {
+      cars.add(Car.fromJson((await car.get()).data() as Map));
+    }
+    return cars;
+  }
+
+  Future<List<Reservation>> getAllReservationFor(CarDealer carDealer) async {
+    List<Reservation> res = [];
+    var q = await _Reservations.get();
+    var docs = q.docs;
+
+    for (var doc in docs) {
+      var q = await (doc['carDealer'] as DocumentReference).get();
+      String cDEmail = (q.data() as Map)["email"];
+      if (cDEmail == carDealer.email) {
+        res.add(Reservation.fromJson(doc.data() as Map<String, dynamic>));
+      }
+    }
+
+    return res;
   }
 }

@@ -1,6 +1,9 @@
+import 'package:carcom/Models/car.dart';
 import 'package:carcom/Models/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CarDealer extends User {
+  List<Car> cars = [];
   CarDealer({
     required int id,
     required String email,
@@ -21,6 +24,14 @@ class CarDealer extends User {
           civilId: civilId,
         );
 
+  CarDealer.fromjson(Map json) : super.fronJson(json) {
+    (json['cars'] as DocumentReference).get().then(
+      (value) {
+        cars.add(Car.fromJson(value.data() as Map));
+      },
+    );
+  }
+  CarDealer.def() : super.def();
   void addCar() {}
   void deleteCar() {}
   void modifyCar() {}
