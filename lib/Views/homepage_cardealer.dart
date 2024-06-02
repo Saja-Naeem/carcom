@@ -47,11 +47,6 @@ class _HomePageCarDealerState extends State<HomePageCarDealer> {
               backgroundColor: Colors.blue[900],
             ),
             BottomNavigationBarItem(
-              icon: const Icon(Icons.calendar_view_month_sharp),
-              label: '',
-              backgroundColor: Colors.blue[900],
-            ),
-            BottomNavigationBarItem(
               icon: const Icon(Icons.notifications),
               label: '',
               backgroundColor: Colors.blue[900],
