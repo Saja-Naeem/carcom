@@ -21,6 +21,13 @@ class _CarDealerCarListState extends State<CarDealerCarList> {
           ),
           backgroundColor: Colors.blue.shade900,
         ),
+        floatingActionButton: FloatingActionButton(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blue[900], 
+          child: const Icon(Icons.add),
+          onPressed: () {  },
+
+        ),
         // ignore: avoid_unnecessary_containers
         body: Container(
           child: ListView.builder(
